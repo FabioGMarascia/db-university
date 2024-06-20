@@ -1,0 +1,78 @@
+Salve io sono Fabio e faccio parte del team 5 insieme a : Matteo / Gabriele
+
+NON CI CONOSCEVAMO
+
+Non avevamo ancora avuto il piacere di interloquire tra noi (è stato il nostro primo scambio diretto), quindi in prima battuta ci siamo presi alcuni minuti per conoscerci e rompere un pò  il ghiaccio.
+
+
+CREZIONE CARTELLA PROGETTO
+
+Subito dopo abbiamo creato la cartella del progetto tramite VITE e concordato le dipendenze necessare per realizzarlo, installandole, tra le quali bootstrap/fontAwesome che abbiamo impiegato per replicarne lo style
+
+
+ANALISI MOKUP
+
+Successivamente siamo passati all'analisi del mokup e del materiale fornitoci, abbiamo committato le immagini decidendo un percorso comune (gli assets) e suddiviso le varie sezioni estrapolate dal mokup stesso.
+
+SUDDIVISIONE COMPONENTI
+
+Questa suddivisione è partita dai marcocomponenti dell'APP Vue, quindi AppHeader/ AppMain / AppFooter, andando poi a frammentarli in microcoponenti come fatto per Header e Main.
+
+Siamo poi passati al denominarli tutti in modo tale da avere chiara la struttura, e ad inserirli in cartelle per spostarli in un percorso di livello più basso rispetto al loro componente Padre.
+
+
+STIMA DIFFICOLTÀ
+
+Siamo partiti con una stima sommaria delle difficoltà e abbiamo deciso di non diverci sbito tutto il lavoro in modo tale che se uno di noi avesse finito prima la propria mansione, si sarebbe potuto spostare sul successivo componente scoperto dichiarandolo al gruppo, per non rallentare l'avanzamento generale del progetto. 
+
+
+AIUTATI A VICENDA
+
+Nelle diverse dinamiche di lavoro, ci siamo più volte confrontati tra noi per aiutarci e raggiungere determinate soluzioni, cercando sempre di mantenere toni pacati e mente aperta, predisposta ad accogliere suggerimenti o modifiche.
+
+DIFFICOLTA SCAMBIO COMPONENTI
+Arrivati allo scambio di alcune componenti realizzate, abbiamo riscontrato un ostacolo dato dalla differenza di strumentazione utilizzata, in quanto la differenza di risoluzione degli schermi non permetteva ad alcuni membri di visualizzare spaziature/margini e quindi di centrare le sezioni, pertanto ci si è ritrovati a dover apportare una serie di modifiche ai componenti ricevuti per allinearli al proprio lavoro.
+
+
+
+
+------------ COMPONENTI ------------
+
+- CAROSELLO JUMBO
+Ho creato il carosello del jumbotron e diverse sezioni del main
+
+Per quanto riguarda il componente jumbotron, era stato realizzato in precedenza da Gabriele e si era pensato di suddividerlo ulteriormente nella componente carosello,
+
+successivamente ho preso in consegna il componente e ho deciso di applicare il carosello direttamente al jumbotron in modo tale da non cambiare solo l'immagine ma anche il titolo ed eventualmente gli altri elementi nella colonna di sinistra.
+
+Ho inserito tra i methods le funzioni dei due bottono PREV E NEXT e creato un ciclo v-for su un array contenente le immagini e i titoli, suddividendo poi il titolo in parte verde per racchiuderlo in un tag che lo stilizzasse. Per recuperare le varie immagini ci siamo avvalsi della funzione getImg ( qui come in altre componenti ) che ha ricreato il path corretto per farle comparire a schermo.
+
+
+- BOTTONE DI SCROLL UP
+Ho realizzato il bottone di scroll up che comparisse in basso a destra dopo un primo scroll della pagina, posizianandolo in fixed e spostandolo dove si era pensato
+
+Ho creato una variabile settata a false, che mi consentisse di controllare se la pagina fosse stata scrollata o meno tramite la funzione HANDLE-SCROLL, questa funzione sarebbe stata richiamata allo scroll assegnando un event "scroll" a WINDOW. Una volta scrollato, questa funzione assegna alla variabile il valore true ed inserendola in un v-if ci mostra il bottone.
+
+Al click tramite il metodo SCROLL-TO applicato a window, ho creato una funzione che risalisse al top della pagina
+
+
+- FILL BOTTONI
+Ho notato che in hover i bottoni venivano irradiati centralemnete in modo circolare ed ho trovato una soluzione inserendo un DIV di background in absolute / posizionato al centro / nscosto azzerandone le dimensioni ed all'hover l'ho ingrandito sopra il 100% per coprirlo tutto ma non sbordare grazie all'overflow
+
+
+
+- SEZIONI COPERTE DAL GRADIENTE
+
+- OUR MISSION (2 SEZ)
+Ho optato per racchiudere l'immagine in un div che avesse il gradiente in BackGround e l'immagine interna opacizzata in modo da far vedere il colore
+
+- OUR RESULTS (4 SEZ)
+Ho usato un approccio diverso per far vedere nitidamente le scritte sopra la card
+Div contenitore con l'immagine in BG e div figlio con il colore in BG ma appliocandogli la trasparenza
+
+-OUR WORKS (3 Sez)
+Ho usato le classi di bootstrap con un div che avesse classe di card img overlay nascondendolo con l'opacity 0
+Ho dato il BG gradiente a questo elemento dando sempre la trasparenza per vedere l'immagine e mostrandolo con l'opacity a 1 all'hover
+
+
+
