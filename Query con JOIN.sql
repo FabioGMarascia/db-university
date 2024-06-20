@@ -41,8 +41,10 @@ WHERE departments.name = 'Dipartimento di Matematica';
 
 -- 7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, stampando anche il voto massimo. Successivamente, filtrare i tentativi con voto minimo 18.
 -- NON CORRETTA ED INCOMPLETA
-SELECT COUNT(exam_student.student_id) AS numero_tentativi, students.name AS nome_studente, students.surname AS cognome_studente, courses.name AS nome_corso
-FROM students
-JOIN exam_student ON students.id = exam_student.student_id
+SELECT students.name AS nome_studente, students.surname AS cognome_studente, courses.name AS nome_corso, COUNT(*) AS numero_tentativi
+FROM exam_student
+JOIN students ON exam_student.student_id = students.id
 JOIN exams ON exam_student.exam_id = exams.id
 JOIN courses ON exams.course_id = courses.id
+GROUP BY nome_corso
+ORDER BY nome_studente ASC, cognome_studente ASC;
