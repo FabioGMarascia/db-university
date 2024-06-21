@@ -11,7 +11,7 @@ JOIN degrees ON departments.id = degrees.department_id
 WHERE departments.name = 'Dipartimento di Neuroscienze' && degrees.level = 'magistrale';
 
 -- 3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
-SELECT courses.name AS corsi_di_Fulvio_Amato
+SELECT courses.name AS corsi_di_Fulvio_Amato, course_teacher.teacher_id
 FROM courses 
 JOIN course_teacher ON courses.id = course_teacher.course_id
 WHERE course_teacher.teacher_id = 44;
@@ -31,7 +31,7 @@ JOIN course_teacher ON course_teacher.course_id = courses.id
 JOIN teachers ON course_teacher.teacher_id = teachers.id;
 
 -- 6. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
-SELECT teachers.name AS nome_insegnate, teachers.surname AS cognome_insegnate 
+SELECT DISTINCT teachers.name AS nome_insegnate, teachers.surname AS cognome_insegnate 
 FROM teachers 
 JOIN course_teacher ON teachers.id = course_teacher.teacher_id 
 JOIN courses ON course_teacher.course_id = courses.id 
